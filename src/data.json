@@ -1,4 +1,4 @@
-[
+{"jobs":  [ 
     {
         "id": "7a102aa6-ecd3-4f1d-82e1-bb6c738b63bc",
         "type": "Full Time",
@@ -636,4 +636,4 @@
         "how_to_apply": "\u003cp\u003e\u003ca href=\"https://vonq.io/36TuFsY\"\u003eKlik hier om te solliciteren!\u003c/a\u003e\u003c/p\u003e\n",
         "company_logo": "https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc21MIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2757bda4ae0e16a4112f166f7ab02c027d46b540/Volksbank.jpeg"
     }
-]
+]}

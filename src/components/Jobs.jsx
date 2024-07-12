@@ -7,14 +7,19 @@ function Jobs({ searchJob, fullTime, location }) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch("../../public/data.json")
-      .then((response) => response.json())
-      .then((data) => setData(data))
+    fetch("http://localhost:3000/jobs")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        console.log(data)
+      })
       .catch((error) => console.error("Error fetching JSON:", error));
   }, []);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>No jobs available</div>;
   }
   const filteredData = searchJob
     ? data.filter(
@@ -27,7 +32,9 @@ function Jobs({ searchJob, fullTime, location }) {
     ? filteredData.filter((job) => job.type === "Full Time")
     : filteredData;
   const filteredDataFullCountry = location
-    ? filteredDataFull.filter((job) => job.location.toLowerCase().includes(location.toLowerCase()))
+    ? filteredDataFull.filter((job) =>
+        job.location.toLowerCase().includes(location.toLowerCase())
+      )
     : filteredDataFull;
   const jobsToDisplay = filteredDataFullCountry.slice(0, 5);
   return (
