@@ -1,0 +1,35 @@
+.SearchBar {
+    background-color: white;
+    padding: 12px;
+    width: 90%;
+    border-radius: 4px;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    .SearchBarIcon {
+        position: relative;
+        left: 10px;
+        width: 20px;
+    }
+    .SearchBarInput{
+        flex-grow: 1;
+        overflow: hidden;
+        &::placeholder {
+            color: #B9BDCF;
+        }
+    }
+    .SearchBarButton{
+        border-radius: 4px;
+        background-color: #1E86FF;
+        color: white;
+        border: none;
+        padding: 14px 48px;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+    }
+  }

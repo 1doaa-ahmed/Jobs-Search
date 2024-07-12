@@ -1,0 +1,60 @@
+.NavBarContainer {
+    color: #334680;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    .checkBoxContainer {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      user-select: none;
+      color: #334680;
+      
+      .checkBoxInput {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      
+      .checkmark {
+      
+        position: absolute;
+        top: 0;
+        left: 12px;
+        height: 18px;
+        width: 18px;
+        background-color: transparent;
+        border: 1px solid #b9bdcf;
+  
+        &:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+      }
+  
+      &:hover input ~ .checkmark {
+        background-color: #ccc; // Change to desired hover color
+      }
+  
+      input:checked ~ .checkmark {
+        background-color: #2196f3; // Change to desired checked color
+  
+        &:after {
+          display: block;
+          left: 5px;
+          top: 0px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  

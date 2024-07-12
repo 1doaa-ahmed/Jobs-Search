@@ -1,0 +1,23 @@
+.HomePageContainer {
+  margin-bottom: 50px;
+}
+.HomePageContainer .mainContainer {
+  padding: 32px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media (max-width: 900px) {
+  .HomePageContainer .mainContainer {
+    padding: 12px;
+  }
+}
+.HomePageContainer .HomePageTitle {
+  font-size: 24px;
+  font-weight: 300;
+  color: #282538;
+  padding-bottom: 12px;
+}
+.HomePageContainer .HomePageTitle span {
+  font-weight: 700;
+}/*# sourceMappingURL=HomePage.css.map */

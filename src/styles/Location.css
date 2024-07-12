@@ -1,0 +1,62 @@
+.LocationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-family: "Roboto", sans-serif;
+}
+.LocationContainer .LocationContainerTitle {
+  font-weight: 700;
+  font-size: 14px;
+  color: #b9bdcf;
+}
+.LocationContainer .Radiocontainer {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-weight: 500;
+  font-size: 14px;
+  color: #334680;
+}
+.LocationContainer .Radiocontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.LocationContainer .Radiocontainer .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #b9bdcf;
+}
+.LocationContainer .Radiocontainer .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.LocationContainer .Radiocontainer:hover input ~ .checkmark {
+  background-color: #b9bdcf;
+}
+.LocationContainer .Radiocontainer input:checked ~ .checkmark {
+  background-color: transparent;
+  border: 1px solid #2196F3;
+}
+.LocationContainer .Radiocontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+.LocationContainer .Radiocontainer .checkmark:after {
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #2196F3;
+}/*# sourceMappingURL=Location.css.map */

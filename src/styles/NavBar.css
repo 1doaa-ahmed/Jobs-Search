@@ -1,0 +1,54 @@
+.NavBarContainer {
+  color: #334680;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.NavBarContainer .checkBoxContainer {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  color: #334680;
+}
+.NavBarContainer .checkBoxContainer .checkBoxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.NavBarContainer .checkBoxContainer .checkmark {
+  position: absolute;
+  top: 0;
+  left: 12px;
+  height: 18px;
+  width: 18px;
+  background-color: transparent;
+  border: 1px solid #b9bdcf;
+}
+.NavBarContainer .checkBoxContainer .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.NavBarContainer .checkBoxContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.NavBarContainer .checkBoxContainer input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+.NavBarContainer .checkBoxContainer input:checked ~ .checkmark:after {
+  display: block;
+  left: 5px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}/*# sourceMappingURL=NavBar.css.map */
