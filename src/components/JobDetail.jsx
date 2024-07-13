@@ -12,16 +12,16 @@ function JobDetail({job}) {
               <button className="type">{job.type}</button>
             </div>
             <div className="time">
-              <img src={clock} alt="" className="timeImage" />
+              <img src={clock} alt="clock icon" className="timeImage" />
               <span className="timeText">{job.created_at.slice(0, 10)}</span>
             </div>
           </div>
           <div className="JobDetailLogo-Company-Location">
-            <img src={job.url} alt="" className="logo" />
+            <img src={job.url} alt="not found" className="logo" />
             <div className="company-location">
               <h2 className="company">{job.company}</h2>
               <div className="location">
-                <img src={earth} alt="" className="locationImage" />
+                <img src={earth} alt="earth icon" className="locationImage" />
                 <span className="locationText">{job.location}</span>
               </div>
             </div>

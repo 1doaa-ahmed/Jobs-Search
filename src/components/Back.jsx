@@ -6,7 +6,7 @@ function Back({ job }) {
   return (
     <div className="BackContainer">
       <div className="ButtonBack">
-        <img src={back} alt="" className="ButtonBackImage" />
+        <img src={back} alt="backArrow" className="ButtonBackImage" />
         <Link to="/" className="ButtonBackLink">
           Back to search
         </Link>

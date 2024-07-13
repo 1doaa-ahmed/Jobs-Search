@@ -41,7 +41,7 @@ function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
       {jobsToDisplay.length > 0 ? (
         jobsToDisplay.map((job) => (
           <Link className="JobContainer" key={job.id} to={`/job/${job.id}`}>
-            <img src={job.url} alt="" className="JobImage" />
+            <img src={job.url} alt="not found" className="JobImage" />
             <div className="JobDetails">
               <h4 className="title">{job.company}</h4>
               <p className="desc">{job.title}</p>
@@ -49,11 +49,11 @@ function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
                 <button className="btnTime">{job.type}</button>
                 <div className="placeAndTime">
                   <div className="place">
-                    <img src={earth} alt="" className="placeImage" />
+                    <img src={earth} alt="earth icon" className="placeImage" />
                     <span className="placeText">{job.location}</span>
                   </div>
                   <div className="time">
-                    <img src={clock} alt="" className="timeImage" />
+                    <img src={clock} alt="clock icon" className="timeImage" />
                     <span className="timeText">
                       {job.created_at.slice(0, 10)}
                     </span>
