@@ -1,7 +1,7 @@
 .contentContainer {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 32px;
+  gap: 32px;margin-top: 50px;
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
   }
