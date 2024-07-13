@@ -8,7 +8,7 @@ function Jobs({ searchJob, fullTime, location , setData , data}) {
   
 
   useEffect(() => {
-    fetch("../../public/data/data.json")
+    fetch("/data/data.json")
       .then((response) => {
         return response.json();
       })
