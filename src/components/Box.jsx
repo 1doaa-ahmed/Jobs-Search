@@ -20,8 +20,8 @@ function Box({
 
   return (
     <button
-      className={`Box ${isChosen ? "chosen" : ""}`}
-      onClick={handleOnClick}
+      className={`${children === "..." ?'rest' : 'Box'} ${isChosen ? "chosen" : ""}`}
+      onClick={`${children === "..." ?'' : handleOnClick}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

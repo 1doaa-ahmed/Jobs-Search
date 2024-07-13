@@ -59,18 +59,6 @@ function Footer({ jobs, setDisplayJobs }) {
             {num}
           </Box>
         ))}
-        {/* <Box>{chosenPage === 1 ? chosenPage : chosenPage - 1}</Box>
-        <Box>{chosenPage === 1 ? chosenPage + 1 : chosenPage}</Box>
-        <Box>{chosenPage === 1 ? chosenPage + 2 : chosenPage + 1}</Box>
-        <Box>...</Box>
-        <Box>{arrayLength}</Box> */}
-
-        {/* <Box>{chosenPage === 7 || 8 || 9 ? "..." : chosenPage }</Box>
-        <Box>{chosenPage ===  7 || 8 || 9 ? chosenPage : chosenPage}</Box>
-        <Box>{chosenPage ===  7 || 8 || 9 ? chosenPage + 1 : chosenPage + 1}</Box>
-        <Box>{chosenPage ===  7 || 8 || 9 ? chosenPage + 2 : chosenPage + 1}</Box>
-        <Box>{arrayLength}</Box> */}
-
         <HoverBox
           arrow={rightArrow}
           arrowHover={rightArrowBlue}
