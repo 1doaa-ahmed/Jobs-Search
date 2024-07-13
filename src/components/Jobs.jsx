@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import "../styles/Jobs.css";
 import earth from "../assets/earth.png";
 import clock from "../assets/clock.png";
+import '../../public/data/data.json'
 
-function Jobs({ searchJob, fullTime, location }) {
-  const [data, setData] = useState(null);
+function Jobs({ searchJob, fullTime, location , setData , data}) {
+  
 
   useEffect(() => {
-    fetch("http://localhost:3000/jobs")
+    fetch("../../public/data/data.json")
       .then((response) => {
         return response.json();
       })

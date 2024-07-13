@@ -1,0 +1,29 @@
+.Box {
+  border: 1px solid #B7BCCE;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #B7BCCE;
+  font-family: "roboto";
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.Box .BoxImage {
+  width: 24px;
+  height: 24px;
+}
+.Box:hover {
+  border-color: #1E86FF;
+  color: #1E86FF;
+}
+.Box:focus {
+  border-color: #1E86FF;
+  background-color: #1E86FF;
+  color: white;
+}/*# sourceMappingURL=Box.css.map */

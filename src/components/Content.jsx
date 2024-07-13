@@ -6,6 +6,7 @@ import Footer from "./Footer";
 export default function Content({ searchJob }) {
   const [fullTime, setFullTime] = useState(false);
   const [location, setLocation] = useState("");
+  const [data, setData] = useState(null);
   return (
     <div className="contentContainer">
       <NavBar
@@ -14,8 +15,14 @@ export default function Content({ searchJob }) {
         location={location}
         setLocation={setLocation}
       />
-      <Jobs searchJob={searchJob} fullTime={fullTime} location={location} />
-      <Footer />
+      <Jobs
+        searchJob={searchJob}
+        fullTime={fullTime}
+        location={location}
+        data={data}
+        setData={setData}
+      />
+      <Footer data={data} setData={setData}/>
     </div>
   );
 }
