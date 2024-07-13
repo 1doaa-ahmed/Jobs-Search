@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/Jobs.css";
 import earth from "../assets/earth.png";
 import clock from "../assets/clock.png";
 import { Link } from "react-router-dom";
-function Jobs({ searchJob, fullTime, location , setData , data}) {
+function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        setData(data);
-        console.log(data)
+        setJobs(data);
+        console.log(data);
       })
       .catch((error) => console.error("Error fetching JSON:", error));
-  }, []);
-
-  if (!data) {
+  }, [setDisplayJobs]);
+  if (!jobs) {
     return <div>No jobs available</div>;
   }
   const filteredData = searchJob
-    ? data.filter(
+    ? jobs.filter(
         (job) =>
           job.title.toLowerCase().includes(searchJob.toLowerCase()) ||
           job.company.toLowerCase().includes(searchJob.toLowerCase())
       )
-    : data;
+    : jobs;
   const filteredDataFull = fullTime
     ? filteredData.filter((job) => job.type === "Full Time")
     : filteredData;

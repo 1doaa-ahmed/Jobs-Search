@@ -6,8 +6,11 @@ import Footer from "./Footer";
 export default function Content({ searchJob }) {
   const [fullTime, setFullTime] = useState(false);
   const [location, setLocation] = useState("");
-  const [data, setData] = useState(null);
+  const [jobs, setJobs] = useState([]);
+  const [displayJobs, setDisplayJobs] = useState([]);
   return (
+    <>
+    
     <div className="contentContainer">
       <NavBar
         fullTime={fullTime}
@@ -16,13 +19,15 @@ export default function Content({ searchJob }) {
         setLocation={setLocation}
       />
       <Jobs
+      setJobs={setJobs}
+        jobs={displayJobs}
         searchJob={searchJob}
         fullTime={fullTime}
         location={location}
-        data={data}
-        setData={setData}
+        setDisplayJobs={setDisplayJobs}
       />
-      <Footer data={data} setData={setData}/>
     </div>
+      <Footer jobs={jobs} setDisplayJobs={setDisplayJobs} />
+    </>
   );
 }

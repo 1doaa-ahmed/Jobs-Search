@@ -1,4 +1,8 @@
 .FooterContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25PX;
+  // gap: 15px;
   .BoxsContainer {
     display: flex;
     gap: 12px;

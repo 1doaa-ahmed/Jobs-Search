@@ -23,6 +23,9 @@
   font-size: 14px;
   font-weight: 500;
 }
+.BackContainer .TextBack {
+  overflow: hidden;
+}
 .BackContainer .TextBack .TitleBack {
   font-weight: 700;
   font-size: 14px;
