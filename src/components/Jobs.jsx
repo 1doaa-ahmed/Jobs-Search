@@ -12,7 +12,6 @@ function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
       })
       .then((data) => {
         setJobs(data);
-        console.log(data);
         setLoading(false)
       })
       .catch((error) => console.error("Error fetching JSON:", error));

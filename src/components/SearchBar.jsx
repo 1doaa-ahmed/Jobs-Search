@@ -4,10 +4,6 @@ import Search from "./Search";
 import bag from "../assets/bag.png";
 
 export default function SearchBar({searchJob , setSearchJob}) {
-  
-  function handleClick() {
-    console.log(searchJob)
-  }
   return (
     <div className="SearchBarContainer">
       <Search
@@ -16,7 +12,7 @@ export default function SearchBar({searchJob , setSearchJob}) {
         value={searchJob}
         onChange={(e) => setSearchJob(e.target.value)}
       >
-        <button className="SearchBarButton" onClick={handleClick}>Search</button>
+        <button className="SearchBarButton">Search</button>
       </Search>
     </div>
   );
