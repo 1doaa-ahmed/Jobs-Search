@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Jobs.css";
 import earth from "../assets/earth.png";
 import clock from "../assets/clock.png";
 import { Link } from "react-router-dom";
 function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
+  const [loading,setLoading]=useState(true)
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => {
@@ -12,11 +13,12 @@ function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
       .then((data) => {
         setJobs(data);
         console.log(data);
+        setLoading(false)
       })
       .catch((error) => console.error("Error fetching JSON:", error));
   }, [setDisplayJobs]);
-  if (!jobs) {
-    return <div>No jobs available</div>;
+  if(loading){
+    return <div>Loading...</div>
   }
   const filteredData = searchJob
     ? jobs.filter(

@@ -1,5 +1,5 @@
 .Box {
-  border: 1px solid #B7BCCE;
+  border: 1px solid #b7bcce;
   border-radius: 4px;
   width: 36px;
   height: 36px;
@@ -7,7 +7,7 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  color: #B7BCCE;
+  color: #b7bcce;
   font-family: "roboto";
   font-weight: 400;
   font-size: 12px;
@@ -19,11 +19,11 @@
   height: 24px;
 }
 .Box:hover {
-  border-color: #1E86FF;
-  color: #1E86FF;
+  border-color: #1e86ff;
+  color: #1e86ff;
 }
-.Box:focus {
-  border-color: #1E86FF;
-  background-color: #1E86FF;
+.Box.chosen {
+  border-color: #1e86ff;
+  background-color: #1e86ff;
   color: white;
 }/*# sourceMappingURL=Box.css.map */

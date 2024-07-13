@@ -1,5 +1,5 @@
-.Box{
-    border: 1px solid #B7BCCE;
+.Box {
+    border: 1px solid #b7bcce;
     border-radius: 4px;
     width: 36px;
     height: 36px;
@@ -7,23 +7,27 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    color: #B7BCCE;
+    color: #b7bcce;
     font-family: "roboto";
     font-weight: 400;
     font-size: 12px;
     cursor: pointer;
     background-color: transparent;
-    .BoxImage{
-        width: 24px;
-        height: 24px;
+  
+    .BoxImage {
+      width: 24px;
+      height: 24px;
     }
+  
     &:hover {
-        border-color: #1E86FF;
-        color: #1E86FF;
+      border-color: #1e86ff;
+      color: #1e86ff;
     }
-    &:focus {
-        border-color: #1E86FF;
-        background-color: #1E86FF;
-        color: white;
+  
+    &.chosen {
+      border-color: #1e86ff;
+      background-color: #1e86ff;
+      color: white;
     }
-}
+  }
+  

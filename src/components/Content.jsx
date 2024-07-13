@@ -10,23 +10,22 @@ export default function Content({ searchJob }) {
   const [displayJobs, setDisplayJobs] = useState([]);
   return (
     <>
-    
-    <div className="contentContainer">
-      <NavBar
-        fullTime={fullTime}
-        setFullTime={setFullTime}
-        location={location}
-        setLocation={setLocation}
-      />
-      <Jobs
-      setJobs={setJobs}
-        jobs={displayJobs}
-        searchJob={searchJob}
-        fullTime={fullTime}
-        location={location}
-        setDisplayJobs={setDisplayJobs}
-      />
-    </div>
+      <div className="contentContainer">
+        <NavBar
+          fullTime={fullTime}
+          setFullTime={setFullTime}
+          location={location}
+          setLocation={setLocation}
+        />
+        <Jobs
+          setJobs={setJobs}
+          jobs={displayJobs}
+          searchJob={searchJob}
+          fullTime={fullTime}
+          location={location}
+          setDisplayJobs={setDisplayJobs}
+        />
+      </div>
       <Footer jobs={jobs} setDisplayJobs={setDisplayJobs} />
     </>
   );

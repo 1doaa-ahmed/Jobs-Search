@@ -1,17 +1,26 @@
 import React from "react";
 import "../styles/Box.css";
 
-function Box({ children, onMouseEnter, onMouseLeave,setDisplayJobs ,jobs }) {
-  
-  function handleOnClick(){
-    const startIndex = ((children) - 1) * 5;
-    const endIndex = startIndex + 5 ;
-    setDisplayJobs(jobs.slice(startIndex,endIndex))
-    
+function Box({
+  children,
+  onMouseEnter,
+  onMouseLeave,
+  setDisplayJobs,
+  jobs,
+  setChosenPage,
+  isChosen,
+  pageNumber
+}) {
+  function handleOnClick() {
+    const startIndex = (pageNumber - 1) * 5;
+    const endIndex = startIndex + 5;
+    setDisplayJobs(jobs.slice(startIndex, endIndex));
+    setChosenPage(pageNumber);
   }
+
   return (
     <button
-      className="Box"
+      className={`Box ${isChosen ? "chosen" : ""}`}
       onClick={handleOnClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
