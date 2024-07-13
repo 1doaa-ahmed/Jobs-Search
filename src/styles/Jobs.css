@@ -6,12 +6,15 @@
   font-family: "Poppins", sans-serif;
 }
 .JobsContainer .JobContainer {
+  text-decoration: none;
   width: 100%;
+  color: #334680;
   background-color: white;
   border-radius: 4px;
   display: flex;
   padding: 12px;
   gap: 12px;
+  cursor: pointer;
 }
 .JobsContainer .JobContainer .JobImage {
   width: 90px;

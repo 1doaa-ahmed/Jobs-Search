@@ -1,18 +1,19 @@
 .JobsContainer {
-//   background-color: aqua;
   display: flex;
   flex-direction: column;
   color: #334680;
   gap: 30px;
   font-family: "Poppins", sans-serif;
   .JobContainer {
+    text-decoration: none;
     width: 100%;
+    color: #334680;
     background-color: white;
     border-radius: 4px;
     display: flex;
     padding: 12px;
     gap: 12px;
-    // justify-content: space-between;
+    cursor: pointer;
     .JobImage {
       width: 90px;
       height: 90px;

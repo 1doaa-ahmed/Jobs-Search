@@ -1,0 +1,37 @@
+.BackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .ButtonBack {
+    display: flex;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    width: fit-content;
+    gap: 10px;
+    .ButtonBackImage {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      top: -1px;
+    }
+    .ButtonBackLink {
+      text-decoration: none;
+      color: #1e86ff;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+  .TextBack {
+    .TitleBack {
+      font-weight: 700;
+      font-size: 14px;
+      color: #b9bdcf;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .DetailBack{
+        font-weight: 500;
+        font-size: 14px;
+    }
+  }
+}

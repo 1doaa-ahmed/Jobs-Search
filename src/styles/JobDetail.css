@@ -1,0 +1,87 @@
+.JobDetailContainer .JobDetailTitle-Type-Time {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.JobDetailContainer .JobDetailTitle-Type-Time .title-type {
+  display: flex;
+  gap: 10px;
+}
+.JobDetailContainer .JobDetailTitle-Type-Time .title-type .title {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "roboto";
+}
+@media (max-width: 700px) {
+  .JobDetailContainer .JobDetailTitle-Type-Time .title-type {
+    flex-direction: column;
+  }
+}
+.JobDetailContainer .JobDetailTitle-Type-Time .title-type .type {
+  background-color: transparent;
+  color: #334680;
+  border: 1px solid #334680;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 6px 8px;
+  font-weight: 800;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.JobDetailContainer .JobDetailTitle-Type-Time .time {
+  display: flex;
+  gap: 7px;
+}
+.JobDetailContainer .JobDetailTitle-Type-Time .time .timeImage {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 2px;
+}
+.JobDetailContainer .JobDetailTitle-Type-Time .time .timeText {
+  font-weight: 500;
+  font-size: 12px;
+  color: #b9bdcf;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location .logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 4px;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location .company-location {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location .company-location .company {
+  font-weight: 700;
+  font-size: 18px;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location .company-location .location {
+  display: flex;
+  gap: 7px;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location .company-location .location .locationImage {
+  width: 15px;
+  position: relative;
+  top: 2px;
+  height: 15px;
+}
+.JobDetailContainer .JobDetailLogo-Company-Location .company-location .location .locationText {
+  font-weight: 500;
+  font-size: 12px;
+  color: #b9bdcf;
+}
+.JobDetailContainer .JobDetailText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 14px;
+}/*# sourceMappingURL=JobDetail.css.map */

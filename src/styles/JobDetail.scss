@@ -1,0 +1,88 @@
+.JobDetailContainer {
+  .JobDetailTitle-Type-Time {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .title-type {
+      display: flex;
+      gap: 10px;
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        font-family: "roboto";
+        
+      }
+      @media (max-width :700px) {
+        flex-direction: column;
+      }
+      .type {
+        background-color: transparent;
+        color: #334680;
+        border: 1px solid #334680;
+        border-radius: 4px;
+        font-size: 12px;
+        padding: 6px 8px;
+        font-weight: 800;
+        width: fit-content;
+      }
+    }
+    .time {
+        display: flex;
+        gap: 7px;
+        .timeImage {
+          width: 15px;
+          height: 15px;
+          position: relative;
+          top: 2px;
+        }
+        .timeText {
+          font-weight: 500;
+          font-size: 12px;
+          color: #b9bdcf;
+        }
+      }
+  }
+  .JobDetailLogo-Company-Location {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    .logo {
+        width: 70px;
+        height: 70px;
+        border-radius: 4px;
+    }
+    .company-location {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+
+      .company {
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .location {
+        display: flex;
+        gap: 7px;
+        .locationImage {
+          width: 15px;
+          position: relative;
+          top: 2px;
+          height: 15px;
+        }
+        .locationText {
+          font-weight: 500;
+          font-size: 12px;
+          color: #b9bdcf;
+        }
+      }
+    }
+  }
+  .JobDetailText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}

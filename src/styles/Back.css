@@ -1,0 +1,36 @@
+.BackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.BackContainer .ButtonBack {
+  display: flex;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+}
+.BackContainer .ButtonBack .ButtonBackImage {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  top: -1px;
+}
+.BackContainer .ButtonBack .ButtonBackLink {
+  text-decoration: none;
+  color: #1e86ff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.BackContainer .TextBack .TitleBack {
+  font-weight: 700;
+  font-size: 14px;
+  color: #b9bdcf;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.BackContainer .TextBack .DetailBack {
+  font-weight: 500;
+  font-size: 14px;
+}/*# sourceMappingURL=Back.css.map */

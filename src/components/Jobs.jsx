@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/Jobs.css";
 import earth from "../assets/earth.png";
 import clock from "../assets/clock.png";
-import '../../public/data/data.json'
-
+import { Link } from "react-router-dom";
 function Jobs({ searchJob, fullTime, location , setData , data}) {
-  
-
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => {
@@ -42,7 +39,7 @@ function Jobs({ searchJob, fullTime, location , setData , data}) {
     <div className="JobsContainer">
       {jobsToDisplay.length > 0 ? (
         jobsToDisplay.map((job) => (
-          <div className="JobContainer" key={job.id}>
+          <Link className="JobContainer" key={job.id} to={`/job/${job.id}`}>
             <img src={job.url} alt="" className="JobImage" />
             <div className="JobDetails">
               <h4 className="title">{job.company}</h4>
@@ -63,7 +60,7 @@ function Jobs({ searchJob, fullTime, location , setData , data}) {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))
       ) : (
         <div className="JobContainer">Sorry, No Job matched</div>
