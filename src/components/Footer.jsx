@@ -6,7 +6,7 @@ import leftArrowBlue from "../assets/leftBlue.png";
 import Box from "./Box";
 import "../styles/Footer.css";
 
-function Footer({ jobs, setDisplayJobs }) {
+export default function Footer({ jobs, setDisplayJobs }) {
   const arrayLength = Math.ceil((jobs.length || 20) / 5);
   // const array = Array.from({ length: arrayLength }, (_, i) => i + 1);
   const [chosenPage, setChosenPage] = useState(1);
@@ -105,4 +105,3 @@ function HoverBox({
     </div>
   );
 }
-export default Footer;
