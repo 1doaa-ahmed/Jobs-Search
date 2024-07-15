@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/NavBar.css";
 import Location from "./Location";
 
@@ -12,6 +12,7 @@ export default function NavBar({
   // const showFullTimeJobs = searchParams.get("filter") === 'FullTime' ;
   const handleCheckboxChange = () => {
     setFullTime((prevState) => {
+      
       setSearchParams((prevParams) => ({
         ...prevParams,
         filter: prevState ? "" : "FullTime",
@@ -31,7 +32,11 @@ export default function NavBar({
         />
         <span className="checkmark"></span>
       </label>
-      <Location location={location} setLocation={setLocation} />
+      <Location
+        location={location}
+        setLocation={setLocation}
+        setSearchParams={setSearchParams}
+      />
     </div>
   );
 }

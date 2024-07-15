@@ -11,16 +11,50 @@ export default function Content({ searchJob }) {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const JobsPerPage = 5;
+  const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => response.json())
-      .then((data) => setJobs(data));
+      .then((data) => {
+        setJobs(data);
+        setLoading(false);
+      })
+      .catch((error) => console.log("ERROR FETCHING JSON : ", error));
   }, []);
+
+  const filteredJobs = jobs.filter((job) => {
+    let matchesSearchJob = true;
+    let matchesFullTime = true;
+    let matchesLocation = true;
+
+    if (searchJob) {
+      matchesSearchJob =
+        job.title.toLowerCase().includes(searchJob.toLowerCase()) ||
+        job.company.toLowerCase().includes(searchJob.toLowerCase());
+    }
+
+    if (fullTime) {
+      matchesFullTime = job.type === "Full Time";
+    }
+
+    if (location) {
+      matchesLocation = job.location
+        .toLowerCase()
+        .includes(location.toLowerCase());
+    }
+
+    return matchesSearchJob && matchesFullTime && matchesLocation;
+  });
 
   const indexOfLastJob = currentPage * JobsPerPage;
   const indexOfFirstJob = indexOfLastJob - JobsPerPage;
-  const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
+  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -34,20 +68,16 @@ export default function Content({ searchJob }) {
           searchParams={searchParams}
         />
 
-        <Jobs
-          setJobs={setJobs}
-          jobs={currentJobs}
-          searchJob={searchJob}
-          fullTime={fullTime}
-          location={location}
-        />
+        <Jobs jobs={currentJobs} />
       </div>
-      <Footer
-        jobs={jobs}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        JobsPerPage={JobsPerPage}
-      />
+      {filteredJobs.length > JobsPerPage && (
+        <Footer
+          jobs={filteredJobs}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          JobsPerPage={JobsPerPage}
+        />
+      )}
     </>
   );
 }
