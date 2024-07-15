@@ -7,9 +7,17 @@ export default function NavBar({
   setFullTime,
   location,
   setLocation,
+  setSearchParams,
 }) {
+  // const showFullTimeJobs = searchParams.get("filter") === 'FullTime' ;
   const handleCheckboxChange = () => {
-    setFullTime((prevState) => !prevState);
+    setFullTime((prevState) => {
+      setSearchParams((prevParams) => ({
+        ...prevParams,
+        filter: prevState ? "" : "FullTime",
+      }));
+      return !prevState;
+    });
   };
   return (
     <div className="NavBarContainer">
