@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Jobs.css";
 import earth from "../assets/earth.png";
 import clock from "../assets/clock.png";
 import { Link } from "react-router-dom";
-function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
-  const [loading,setLoading]=useState(true)
+
+function Jobs({ searchJob, fullTime, location, setJobs, jobs }) {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => {
@@ -15,10 +17,11 @@ function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
         setLoading(false)
       })
       .catch((error) => console.error("Error fetching JSON:", error));
-  }, [setDisplayJobs]);
-  if(loading){
-    return <div>Loading...</div>
+  }, [setJobs]);
+  if (loading) {
+    return <div>Loading...</div>;
   }
+
   const filteredData = searchJob
     ? jobs.filter(
         (job) =>
@@ -26,15 +29,19 @@ function Jobs({ searchJob, fullTime, location,setJobs, setDisplayJobs, jobs }) {
           job.company.toLowerCase().includes(searchJob.toLowerCase())
       )
     : jobs;
+
   const filteredDataFull = fullTime
     ? filteredData.filter((job) => job.type === "Full Time")
     : filteredData;
+
   const filteredDataFullCountry = location
     ? filteredDataFull.filter((job) =>
         job.location.toLowerCase().includes(location.toLowerCase())
       )
     : filteredDataFull;
-  const jobsToDisplay = filteredDataFullCountry.slice(0, 5);
+
+  const jobsToDisplay = filteredDataFullCountry;
+
   return (
     <div className="JobsContainer">
       {jobsToDisplay.length > 0 ? (

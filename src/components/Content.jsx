@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Content.css";
 import NavBar from "./NavBar";
 import Jobs from "./Jobs";
 import Footer from "./Footer";
+
 export default function Content({ searchJob }) {
   const [fullTime, setFullTime] = useState(false);
   const [location, setLocation] = useState("");
   const [jobs, setJobs] = useState([]);
-  const [displayJobs, setDisplayJobs] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const JobsPerPage = 5;
+
+  useEffect(() => {
+    fetch("/data/data.json")
+      .then((response) => response.json())
+      .then((data) => setJobs(data));
+  }, []);
+
+  const indexOfLastJob = currentPage * JobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - JobsPerPage;
+  const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
+
   return (
     <>
       <div className="contentContainer">
@@ -19,14 +32,18 @@ export default function Content({ searchJob }) {
         />
         <Jobs
           setJobs={setJobs}
-          jobs={displayJobs}
+          jobs={currentJobs}
           searchJob={searchJob}
           fullTime={fullTime}
           location={location}
-          setDisplayJobs={setDisplayJobs}
         />
       </div>
-      <Footer jobs={jobs} setDisplayJobs={setDisplayJobs} />
+      <Footer
+        jobs={jobs}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        JobsPerPage={JobsPerPage}
+      />
     </>
   );
 }

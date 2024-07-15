@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import rightArrow from "../assets/right.png";
 import leftArrow from "../assets/left.png";
 import rightArrowBlue from "../assets/rightBlue.png";
@@ -6,55 +6,55 @@ import leftArrowBlue from "../assets/leftBlue.png";
 import Box from "./Box";
 import "../styles/Footer.css";
 
-export default function Footer({ jobs, setDisplayJobs }) {
-  const arrayLength = Math.ceil((jobs.length || 20) / 5);
-  // const array = Array.from({ length: arrayLength }, (_, i) => i + 1);
-  const [chosenPage, setChosenPage] = useState(1);
-  let array = [];
-  useEffect(() => {
-    setDisplayJobs(jobs.slice(0, 5));
-  }, [jobs, setDisplayJobs]);
-  useEffect(() => {
-    const startIndex = (chosenPage - 1) * 5;
-    const endIndex = startIndex + 5;
-    setDisplayJobs(jobs.slice(startIndex, endIndex));
-  }, [chosenPage, jobs, setDisplayJobs]);
-  if (chosenPage === 1) {
-    array = [chosenPage, chosenPage + 1, chosenPage + 2, "...", arrayLength];
-  } else if (chosenPage > 1 && chosenPage < 7) {
-    array = [chosenPage - 1, chosenPage, chosenPage + 1, "...", arrayLength];
-  }
-   else if (chosenPage ===7) {
-    array = ["..." ,chosenPage, chosenPage + 1,chosenPage + 2, arrayLength];
-  }
-   else if (chosenPage === 8) {
-    array = ["..." ,chosenPage-1, chosenPage ,arrayLength -1  , arrayLength];
-  }
-   else if (chosenPage === 9) {
-    array = ["..." ,chosenPage-2, chosenPage - 1 ,arrayLength -1  , arrayLength];
-  }
-   else if (chosenPage === arrayLength) {
-    array = ["..." ,arrayLength-3, arrayLength - 2 ,arrayLength -1  , arrayLength];
-  }
+export default function Footer({
+  jobs,
+  currentPage,
+  setCurrentPage,
+  JobsPerPage,
+}) {
+  const arrayLength = Math.ceil(jobs.length / JobsPerPage);
+
+  function generatePaginationArray () {
+    let array = [];
+    if (currentPage <= 3) {
+      array = [1, 2, 3, "...", arrayLength];
+    } else if (currentPage >= arrayLength - 2) {
+      array = [1, "...", arrayLength - 2, arrayLength - 1, arrayLength];
+    } else {
+      array = [
+        1,
+        "...",
+        currentPage - 1,
+        currentPage,
+        currentPage + 1,
+        "...",
+        arrayLength,
+      ];
+    }
+    return array;
+  };
+
+  function handlePageChange (page){
+    setCurrentPage(page);
+  };
   return (
     <div className="FooterContainer">
       <div className="BoxsContainer">
         <HoverBox
           arrow={leftArrow}
-          setChosenPage={setChosenPage}
           arrowHover={leftArrowBlue}
-          chosenPage={chosenPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           direction="left"
           arrayLength={arrayLength}
         />
-        {array.map((num) => (
+        {generatePaginationArray().map((num, index) => (
           <Box
-            key={num}
-            isChosen={chosenPage === num}
-            setChosenPage={setChosenPage}
-            setDisplayJobs={setDisplayJobs}
-            jobs={jobs}
+            key={index}
+            isChosen={currentPage === num}
+            setChosenPage={handlePageChange}
             pageNumber={num}
+            jobs={jobs}
           >
             {num}
           </Box>
@@ -62,8 +62,8 @@ export default function Footer({ jobs, setDisplayJobs }) {
         <HoverBox
           arrow={rightArrow}
           arrowHover={rightArrowBlue}
-          chosenPage={chosenPage}
-          setChosenPage={setChosenPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
           direction="right"
           arrayLength={arrayLength}
         />
@@ -75,20 +75,20 @@ export default function Footer({ jobs, setDisplayJobs }) {
 function HoverBox({
   arrow,
   arrowHover,
-  chosenPage,
-  setChosenPage,
+  currentPage,
+  setCurrentPage,
   direction,
   arrayLength,
 }) {
   const [isHover, setIsHover] = useState(false);
 
-  function handleOnClick() {
-    if (direction === "left" && chosenPage > 1) {
-      setChosenPage((prev) => prev - 1);
-    } else if (direction === "right" && chosenPage < arrayLength) {
-      setChosenPage((prev) => prev + 1);
+  const handleOnClick = () => {
+    if (direction === "left" && currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    } else if (direction === "right" && currentPage < arrayLength) {
+      setCurrentPage((prev) => prev + 1);
     }
-  }
+  };
 
   return (
     <div
