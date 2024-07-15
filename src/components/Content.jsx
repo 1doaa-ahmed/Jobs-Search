@@ -10,7 +10,6 @@ export default function Content({ searchJob }) {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const JobsPerPage = 5;
-
   useEffect(() => {
     fetch("/data/data.json")
       .then((response) => response.json())
@@ -30,6 +29,7 @@ export default function Content({ searchJob }) {
           location={location}
           setLocation={setLocation}
         />
+
         <Jobs
           setJobs={setJobs}
           jobs={currentJobs}
@@ -38,12 +38,14 @@ export default function Content({ searchJob }) {
           location={location}
         />
       </div>
-      <Footer
-        jobs={jobs}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        JobsPerPage={JobsPerPage}
-      />
+        <Footer
+          jobs={jobs}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          JobsPerPage={JobsPerPage}
+        />
+    
+
     </>
   );
 }

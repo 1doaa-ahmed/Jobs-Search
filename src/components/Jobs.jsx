@@ -4,7 +4,7 @@ import earth from "../assets/earth.png";
 import clock from "../assets/clock.png";
 import { Link } from "react-router-dom";
 
-function Jobs({ searchJob, fullTime, location, setJobs, jobs }) {
+function Jobs({ searchJob, fullTime,location, setJobs, jobs }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ function Jobs({ searchJob, fullTime, location, setJobs, jobs }) {
       })
       .then((data) => {
         setJobs(data);
-        setLoading(false)
+        setLoading(false);
       })
       .catch((error) => console.error("Error fetching JSON:", error));
   }, [setJobs]);
