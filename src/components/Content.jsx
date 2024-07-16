@@ -54,6 +54,7 @@ export default function Content({ searchJob }) {
 
   if (loading) {
     return <div>Loading...</div>;
+    
   }
 
   return (
